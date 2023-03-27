@@ -1,3 +1,4 @@
+L14. Longest Common Prefix
 Target: Finding the most common string after searching three or more strings.
 Solution:
 class Solution {
@@ -23,8 +24,6 @@ class Solution {
                     return result.toString();
                 }
             }
-            return result.toString();
-       
-       
+            return result.toString();           
     }
 }
