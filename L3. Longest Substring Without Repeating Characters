@@ -1,4 +1,4 @@
-Ideas:
+My Ideas:
 a.Find the longest substring without any repeating characters.
 b.One step: Checkout the repeating characters
 c.Need to use hash table to setup the key and value
