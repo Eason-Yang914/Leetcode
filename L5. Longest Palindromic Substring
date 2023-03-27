@@ -1,0 +1,29 @@
+Idea: A string is said to be a palindrome if the string read from left to right is equal to the string read from right to left. Given the string s. Using dynamic programming. Iterate from the left to right.
+
+Codes:
+class Solution {
+        int maxLen = 0;
+        int left = 0;  // The beginning of the left
+    public String longestPalindrome(String s) {
+        if(s == null || s.length() <=1) return s;
+        for(int i = 0; i < s.length();i++){
+            //case1:From one letter to find its left and right
+            helper(s,i,i);  
+            helper(s,i,i+1);
+        }
+        //substring
+        return s.substring(left, left+maxLen);
+    }
+
+
+    public void helper(String s, int l, int r){
+     while(l >= 0 && r < s.length() && s.charAt(l)==s.charAt(r)){
+            l--;
+            r++;
+        }
+        if(maxLen < r-l-1){
+            maxLen = r-l-1;
+            left = l+1;
+        }
+    }
+}
