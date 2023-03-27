@@ -1,3 +1,4 @@
+L5. Longest Palindromic Substring
 Idea: A string is said to be a palindrome if the string read from left to right is equal to the string read from right to left. Given the string s. Using dynamic programming. Iterate from the left to right.
 
 Codes:
