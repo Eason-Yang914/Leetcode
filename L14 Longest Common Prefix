@@ -1,0 +1,30 @@
+Target: Finding the most common string after searching three or more strings.
+Solution:
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+	// new string builder
+        StringBuilder result = new StringBuilder();
+ 	// exception
+        if (strs==null ||strs.length==0){
+            return "";
+        }
+       // sort the string alphabetically
+            Arrays.sort(strs);
+ 	// toCharArray convert the given string into a character
+            char [] first = strs[0].toCharArray();
+            char [] last = strs[strs.length-1].toCharArray();
+ 
+            for (int i=0;i<first.length;i++){
+	// If the lastl
+                if (last.length> i && last[i]==first[i]){
+                    result.append(last[i]);
+                }
+                else{
+                    return result.toString();
+                }
+            }
+            return result.toString();
+       
+       
+    }
+}
