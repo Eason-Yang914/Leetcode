@@ -1,0 +1,22 @@
+想法：
+提供的整数array，return true如果某个数存在两次以及两次以上，
+Return false如果每个数字独立存在在数组中。解法为以下两种，通过时间复杂度进行区分。
+O（NlogN）：首先对数组长度进行判断，如果数组长度=0或是小于2，直接返回false，对数组进行排序，然后再使用for loop进行遍历，如果排序后的数组前一个数=后一个数，return true。时间复杂度过高，可以优化
+
+
+Code part：
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        if(nums==null || nums.length<2){
+            return false;
+        }
+        Arrays.sort(nums);
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]==nums[i-1]){
+                return true;
+            }
+        }
+        return false;       
+    }
+}
+O（N）：使用HashSet
