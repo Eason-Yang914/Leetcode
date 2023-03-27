@@ -1,0 +1,41 @@
+题目含义：寻找最大的的连续子序列
+方法1: 暴力法
+For (nums) → int
+Result = int _Min_Value
+for i in[0, len(nums)]
+Sum =0;
+For j in [ i, len(nums)]
+Sum = sum + nums[j]
+Result = max (result, sum)
+Return result
+
+方法2：分治法(divide & conquer) 过于复杂
+func( nums) → int
+Return getMax( nums, 0, len(nums)-1)
+
+getMax (nums, left, right) → int
+If left = right;
+	Return nums[left]
+Mid = l + (r-l)/2 = (l+r) / 2
+leftMax = getMax (nums,left,mid)
+rightMax = getMax (nums,mid+1,right)
+crossMax = getCrossMax( nums,left, right)
+Return max(left(Max, rightMax, crossMax)
+
+getCrossMax(nums,left, right)
+Mid = l + (r-l)/2 = (l+r) / 2
+leftSum = nums[mid]
+leftMax = leftSum
+For i in [ mid -1, -1]
+leftSum = left(sum +nums[i])
+leftMax = max( leftMax, leftSum)
+rightSum = nums[mid +1]
+rightMax = rightSum
+For i in [mid +2, r]
+rightSum = rightSum + nums[i]
+rightMax = max(rightMax, rightSum)
+Return leftMax+ rightMax
+
+
+方法3: 动态规划( Dynamic Programming)
+（a）和前面合并（b）不和前面合并
