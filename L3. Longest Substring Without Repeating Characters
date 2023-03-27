@@ -1,0 +1,40 @@
+Ideas:
+a.Find the longest substring without any repeating characters.
+b.One step: Checkout the repeating characters
+c.Need to use hash table to setup the key and value
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if ( s==null || s.equals("")){
+            return 0;
+        }
+
+
+        //initial two pointer
+        //abcabcbb
+        //^
+        //^
+        //move the right pointer first
+        int leftPointer = 0;
+        int rightPointer = 0;
+        int max = 0;
+       
+        // create one new hashset to store the Character
+        HashSet<Character> hash_set = new HashSet();
+        //当右指针移动时小于s的长度时
+        while(rightPointer < s.length()){
+            if(!hash_set.contains(s.charAt(rightPointer))){
+                hash_set.add(s.charAt(rightPointer));
+                rightPointer++;
+                // compare the max and update all the time
+                max = Math.max(hash_set.size(),max);
+            }else{
+                //duplicate condition
+                //remove the leftpointer and move forward
+                hash_set.remove(s.charAt(leftPointer));
+                leftPointer++;
+            }
+        }
+        return max;
+    }
+}
